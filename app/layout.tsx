@@ -1,7 +1,8 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { GlobalSettingsProvider } from '@/lib/context/GlobalSettingsContext';
 import Footer from './components/Footer';
+import AppInitializer from './components/AppInitializer';
 
 export const metadata: Metadata = {
   title: 'Music Ear Trainer',
@@ -9,6 +10,19 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg',
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Music Ear Trainer',
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
@@ -19,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <AppInitializer />
         <GlobalSettingsProvider>
           {children}
           <Footer />

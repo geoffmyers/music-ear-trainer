@@ -6,6 +6,12 @@
 
 /* CSS Variables for theming */
 :root {
+  /* Safe area insets for notched devices (iOS/Android) */
+  --sat: env(safe-area-inset-top);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+  --sar: env(safe-area-inset-right);
+
   /* Dark theme (default) */
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
@@ -50,11 +56,27 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
+  /* Safe area padding for native apps */
+  padding-top: var(--sat);
+  padding-left: var(--sal);
+  padding-right: var(--sar);
+}
+
+/* Ensure full viewport height on mobile/native */
+html {
+  height: 100%;
+  height: -webkit-fill-available;
+}
+
+body {
+  min-height: 100%;
+  min-height: -webkit-fill-available;
 }
 
 .app {
   min-height: 100vh;
   padding: 2rem;
+  padding-top: max(2rem, var(--sat));
   width: 100%;
 }
 
@@ -739,9 +761,9 @@ body {
   background: var(--border-color);
 }
 
-/* Add padding to app to account for copyright footer */
+/* Add padding to app to account for copyright footer and safe area */
 .app {
-  padding-bottom: 50px;
+  padding-bottom: calc(50px + var(--sab));
 }
 
 /* Answer Visualization */
@@ -1052,6 +1074,8 @@ body {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
   z-index: 999;
+  /* Account for safe area on native apps */
+  padding-bottom: var(--sab);
 }
 
 .copyright {

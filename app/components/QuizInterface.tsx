@@ -1,6 +1,7 @@
 'use client';
 
 import type { QuizQuestion } from '@/lib/types/game';
+import { useHaptics } from '@/lib/hooks/useHaptics';
 import FeedbackDisplay from './FeedbackDisplay';
 import AnswerVisualization from './AnswerVisualization';
 
@@ -25,11 +26,28 @@ export default function QuizInterface({
   onNextQuestion,
   selectedAnswer
 }: Props) {
+  const { lightTap, mediumTap } = useHaptics();
+
+  const handlePlayAudio = async () => {
+    await lightTap();
+    onPlayAudio();
+  };
+
+  const handleSelectAnswer = async (answer: string) => {
+    await mediumTap();
+    onSelectAnswer(answer);
+  };
+
+  const handleNextQuestion = async () => {
+    await lightTap();
+    onNextQuestion();
+  };
+
   return (
     <div className="quiz-interface">
       <button
         className="play-button"
-        onClick={onPlayAudio}
+        onClick={handlePlayAudio}
         disabled={isPlaying}
       >
         {isPlaying ? '🔊 Playing...' : '▶️ Play Sound'}
@@ -49,7 +67,7 @@ export default function QuizInterface({
             <button
               key={option}
               className={className}
-              onClick={() => onSelectAnswer(option)}
+              onClick={() => handleSelectAnswer(option)}
               disabled={hasAnswered}
             >
               {option}
@@ -68,7 +86,7 @@ export default function QuizInterface({
             audioData={question.audioData}
             correctAnswer={question.correctAnswer}
           />
-          <button className="next-button" onClick={onNextQuestion}>
+          <button className="next-button" onClick={handleNextQuestion}>
             Next Question →
           </button>
         </>
