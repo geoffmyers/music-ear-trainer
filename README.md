@@ -9,8 +9,7 @@ An interactive web-based ear training game that helps musicians develop their ab
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/Music_Ear_Trainer_Main_Menu.png" width="400" alt="Main Menu">
-  <img src="screenshots/Music_Ear_Trainer_Global_Settings.png" width="400" alt="Global Settings">
+  <img src="screenshots/Music_Ear_Trainer_Main_Menu_Global_Settings.png" width="100%" alt="Main Menu with Settings Panel">
 </p>
 
 <p align="center">
@@ -36,10 +35,6 @@ An interactive web-based ear training game that helps musicians develop their ab
 <p align="center">
   <img src="screenshots/Music_Ear_Trainer_Scales_1.png" width="400" alt="Scales Quiz">
   <img src="screenshots/Music_Ear_Trainer_Scales_2.png" width="400" alt="Scales Answer">
-</p>
-
-<p align="center">
-  <img src="screenshots/Music_Ear_Trainer_Main_Menu_Global_Settings.png" width="600" alt="Main Menu with Settings Panel">
 </p>
 
 ## 🎵 Features
