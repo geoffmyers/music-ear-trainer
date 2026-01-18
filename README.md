@@ -192,8 +192,8 @@ _Note: Difficulty levels are cumulative - Medium includes all Easy content, and 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/simdexllc/SimDex-Mono-Repo.git
-cd SimDex-Mono-Repo/nextjs-projects/music-ear-trainer
+git clone https://github.com/geoffmyers/music-ear-trainer.git
+cd music-ear-trainer
 ```
 
 2. Install dependencies:
@@ -349,7 +349,7 @@ No environment variables are required for this application.
 
 ## 📝 License
 
-Copyright © 2025 [Geoff Myers](https://www.geoffmyers.com)
+GPL-2.0 License - See [LICENSE.md](LICENSE.md) for details.
 
 ## 🙏 Acknowledgments
 
