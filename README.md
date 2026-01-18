@@ -6,6 +6,42 @@ An interactive web-based ear training game that helps musicians develop their ab
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7.2-blue?style=flat-square&logo=typescript)
 ![React](https://img.shields.io/badge/React-19.0.0-61dafb?style=flat-square&logo=react)
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/Music_Ear_Trainer_Main_Menu.png" width="400" alt="Main Menu">
+  <img src="screenshots/Music_Ear_Trainer_Global_Settings.png" width="400" alt="Global Settings">
+</p>
+
+<p align="center">
+  <img src="screenshots/Music_Ear_Trainer_Intervals_1.png" width="400" alt="Intervals Quiz">
+  <img src="screenshots/Music_Ear_Trainer_Intervals_2.png" width="400" alt="Intervals Answer">
+</p>
+
+<p align="center">
+  <img src="screenshots/Music_Ear_Trainer_Chords_1.png" width="400" alt="Chords Quiz">
+  <img src="screenshots/Music_Ear_Trainer_Chords_2.png" width="400" alt="Chords Answer">
+</p>
+
+<p align="center">
+  <img src="screenshots/Music_Ear_Trainer_Chord_Progressions_1.png" width="400" alt="Chord Progressions Quiz">
+  <img src="screenshots/Music_Ear_Trainer_Chord_Progressions_2.png" width="400" alt="Chord Progressions Answer">
+</p>
+
+<p align="center">
+  <img src="screenshots/Music_Ear_Trainer_Perfect_Pitch_1.png" width="400" alt="Perfect Pitch Quiz">
+  <img src="screenshots/Music_Ear_Trainer_Perfect_Pitch_2.png" width="400" alt="Perfect Pitch Answer">
+</p>
+
+<p align="center">
+  <img src="screenshots/Music_Ear_Trainer_Scales_1.png" width="400" alt="Scales Quiz">
+  <img src="screenshots/Music_Ear_Trainer_Scales_2.png" width="400" alt="Scales Answer">
+</p>
+
+<p align="center">
+  <img src="screenshots/Music_Ear_Trainer_Main_Menu_Global_Settings.png" width="600" alt="Main Menu with Settings Panel">
+</p>
+
 ## 🎵 Features
 
 ### Game Modes
