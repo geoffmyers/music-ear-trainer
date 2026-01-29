@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Music Ear Trainer</string>
+    <string name="title_activity_main">Music Ear Trainer</string>
+    <string name="package_name">com.geoffmyers.musiceartrainer</string>
+    <string name="custom_url_scheme">com.geoffmyers.musiceartrainer</string>
+</resources>

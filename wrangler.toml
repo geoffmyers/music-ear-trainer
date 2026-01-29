@@ -1,0 +1,10 @@
+name = "music-ear-trainer"
+account_id = "7e793f1777bb69fba01518e6c38c7ec0"
+compatibility_date = "2025-01-10"
+
+[assets]
+directory = "out"
+not_found_handling = "single-page-application"
+
+[observability]
+enabled = true
