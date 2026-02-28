@@ -1,3 +1,11 @@
+---
+title: Music Ear Trainer
+created: 2026-01-28
+modified: 2026-01-28
+description: "An interactive web-based ear training game that helps musicians develop their ability to identify musical intervals, chords, progressions, scales, and perfect pitch."
+tags: [music, readme]
+---
+
 # Music Ear Trainer
 
 An interactive web-based ear training game that helps musicians develop their ability to identify musical intervals, chords, progressions, scales, and perfect pitch.

@@ -1,3 +1,11 @@
+---
+title: Capacitor Implementation Plan for Music Ear Trainer
+created: 2026-01-28
+modified: 2026-02-01
+description: "This document outlines a comprehensive plan to package the existing Next.js Music Ear Trainer web app as native iOS and Android apps using Capacitor, maintaining a single codebase for web, iOS, and..."
+tags: [music]
+---
+
 # Capacitor Implementation Plan for Music Ear Trainer
 
 > **GitHub Issue:** [#220 — Music Ear Trainer: Capacitor mobile app implementation](https://github.com/geoffmyers/geoff-myers-mono-repo/issues/220)

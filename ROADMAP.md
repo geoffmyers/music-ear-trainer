@@ -1,3 +1,11 @@
+---
+title: Music Ear Trainer
+created: 2026-01-28
+modified: 2026-01-28
+description: "- (none)"
+tags: [music]
+---
+
 # Music Ear Trainer
 
 ## To Do

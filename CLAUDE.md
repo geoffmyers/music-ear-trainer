@@ -1,3 +1,11 @@
+---
+title: CLAUDE.md - Music Ear Trainer
+created: 2026-01-28
+modified: 2026-01-28
+description: This file provides technical guidance to Claude Code when working with the Music Ear Trainer codebase.
+tags: [music, claude]
+---
+
 # CLAUDE.md - Music Ear Trainer
 
 This file provides technical guidance to Claude Code when working with the Music Ear Trainer codebase.

@@ -1,3 +1,11 @@
+---
+title: Ideas for Future Enhancements
+created: 2026-01-28
+modified: 2026-01-28
+description: "This document contains potential features, improvements, and optimizations for the Music Ear Trainer project. These ideas are organized by category and prioritized roughly from most to least..."
+tags: [music]
+---
+
 # Ideas for Future Enhancements
 
 This document contains potential features, improvements, and optimizations for the Music Ear Trainer project. These ideas are organized by category and prioritized roughly from most to least impactful.
