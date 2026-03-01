@@ -432,4 +432,8 @@ This runs:
 
 ---
 
+## Gotchas
+
+- This is a git subtree; push changes upstream with `git subtree push --prefix=music/music-ear-trainer-nextjs music-ear-trainer main`
+
 For questions or clarifications about this codebase, refer to the code comments and TypeScript types, which are comprehensive and up-to-date.
