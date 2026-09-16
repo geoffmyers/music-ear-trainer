@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/favicon.svg" width="96" height="96" alt="Music Ear Trainer icon">
+  <img src="docs/icon.svg" width="96" height="96" alt="Music Ear Trainer icon">
 </p>
 
 # Music Ear Trainer
@@ -12,17 +12,6 @@
 [![Licence GPL-3.0-or-later](https://img.shields.io/badge/licence-GPL--3.0--or--later-blue?style=flat-square)](LICENSE.md)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 <!-- BADGES:END -->
-
-## Description
-
-An ear-training game for musicians. It plays an interval, a chord, a chord
-progression, a scale or a single note, and you name what you heard. Each answer
-is then shown on a piano keyboard and in staff notation, so you can see what
-you heard as well as hear it.
-
-**Play it at [music-ear-trainer.geoffmyers.com](https://music-ear-trainer.geoffmyers.com/).**
-It is a static Next.js site, and the same code is packaged for iOS and Android
-with Capacitor.
 
 ## Table of Contents
 
@@ -41,6 +30,17 @@ with Capacitor.
 - [Credits](#credits)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Description
+
+An ear-training game for musicians. It plays an interval, a chord, a chord
+progression, a scale or a single note, and you name what you heard. Each answer
+is then shown on a piano keyboard and in staff notation, so you can see what
+you heard as well as hear it.
+
+**Play it at [music-ear-trainer.geoffmyers.com](https://music-ear-trainer.geoffmyers.com/).**
+It is a static Next.js site, and the same code is packaged for iOS and Android
+with Capacitor.
 
 ## Screenshots
 
@@ -209,6 +209,9 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for more detail.
 - Built with [Next.js](https://nextjs.org/) and [React](https://react.dev/),
   packaged for mobile with [Capacitor](https://capacitorjs.com/), and deployed
   with [Wrangler](https://developers.cloudflare.com/workers/wrangler/).
+- The README icon is the [Font Awesome](https://fontawesome.com/) `music` glyph,
+  as shown for this app on [geoffmyers.com](https://www.geoffmyers.com), used under
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 - Instrument samples from
   [tonejs-instruments](https://github.com/nbrosowsky/tonejs-instruments) by
   Nicholaus Brosowsky, used under
