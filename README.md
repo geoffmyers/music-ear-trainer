@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/favicon.svg" width="96" height="96" alt="Music Ear Trainer icon">
+</p>
+
 # Music Ear Trainer
 
 <!-- BADGES:START -->
@@ -9,380 +13,215 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 <!-- BADGES:END -->
 
-An interactive web-based ear training game that helps musicians develop their ability to identify musical intervals, chords, progressions, scales, and perfect pitch.
+## Description
+
+An ear-training game for musicians. It plays an interval, a chord, a chord
+progression, a scale or a single note, and you name what you heard. Each answer
+is then shown on a piano keyboard and in staff notation, so you can see what
+you heard as well as hear it.
+
+**Play it at [music-ear-trainer.geoffmyers.com](https://music-ear-trainer.geoffmyers.com/).**
+It is a static Next.js site, and the same code is packaged for iOS and Android
+with Capacitor.
+
+## Table of Contents
+
+- [Description](#description)
+- [Screenshots](#screenshots)
+- [Features](#features)
+  - [Content library](#content-library)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [How to play](#how-to-play)
+  - [Settings](#settings)
+  - [Building and deploying](#building-and-deploying)
+  - [Mobile apps](#mobile-apps)
+- [Architecture](#architecture)
+- [Credits](#credits)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/Music_Ear_Trainer_Main_Menu_Global_Settings.png" width="100%" alt="Main Menu with Settings Panel">
+  <img src="screenshots/Music_Ear_Trainer_Main_Menu_Global_Settings.png" width="100%" alt="The main menu with the settings panel open">
 </p>
 
-<p align="center">
-  <img src="screenshots/Music_Ear_Trainer_Intervals_1.png" width="400" alt="Intervals Quiz">
-  <img src="screenshots/Music_Ear_Trainer_Intervals_2.png" width="400" alt="Intervals Answer">
-</p>
+| Question | Answer |
+|---|---|
+| ![Intervals quiz](screenshots/Music_Ear_Trainer_Intervals_1.png) | ![Intervals answer](screenshots/Music_Ear_Trainer_Intervals_2.png) |
+| ![Chords quiz](screenshots/Music_Ear_Trainer_Chords_1.png) | ![Chords answer](screenshots/Music_Ear_Trainer_Chords_2.png) |
+| ![Chord progressions quiz](screenshots/Music_Ear_Trainer_Chord_Progressions_1.png) | ![Chord progressions answer](screenshots/Music_Ear_Trainer_Chord_Progressions_2.png) |
+| ![Perfect pitch quiz](screenshots/Music_Ear_Trainer_Perfect_Pitch_1.png) | ![Perfect pitch answer](screenshots/Music_Ear_Trainer_Perfect_Pitch_2.png) |
+| ![Scales quiz](screenshots/Music_Ear_Trainer_Scales_1.png) | ![Scales answer](screenshots/Music_Ear_Trainer_Scales_2.png) |
 
-<p align="center">
-  <img src="screenshots/Music_Ear_Trainer_Chords_1.png" width="400" alt="Chords Quiz">
-  <img src="screenshots/Music_Ear_Trainer_Chords_2.png" width="400" alt="Chords Answer">
-</p>
+## Features
 
-<p align="center">
-  <img src="screenshots/Music_Ear_Trainer_Chord_Progressions_1.png" width="400" alt="Chord Progressions Quiz">
-  <img src="screenshots/Music_Ear_Trainer_Chord_Progressions_2.png" width="400" alt="Chord Progressions Answer">
-</p>
+- **Five game modes**: intervals, chords, chord progressions, scales and
+  perfect pitch
+- **Three difficulty levels.** Each level adds material and answer choices:
+  3 choices on Easy, 4 on Medium and 6 on Hard.
+- **Answers you can see**: a highlighted piano keyboard and staff notation
+  rendered with VexFlow
+- **Real and synthesised sound**: sine, square, sawtooth and triangle waves, or
+  sampled piano, acoustic guitar, violin, flute and trumpet
+- **Adjustable practice**: note range, number of questions (5–100), an optional
+  time limit per question, sharps or flats, and notes played one after another
+  or together
+- **Scoring with streaks**: points per correct answer grow with the difficulty,
+  a streak bonus is added every three in a row, and statistics are kept per mode
+- **Dark and light themes**
+- **No server or account**: it is a static site, and your settings and
+  statistics are kept in the browser
+- **iOS and Android apps** built with Capacitor, with haptic feedback on phones
 
-<p align="center">
-  <img src="screenshots/Music_Ear_Trainer_Perfect_Pitch_1.png" width="400" alt="Perfect Pitch Quiz">
-  <img src="screenshots/Music_Ear_Trainer_Perfect_Pitch_2.png" width="400" alt="Perfect Pitch Answer">
-</p>
+### Content library
 
-<p align="center">
-  <img src="screenshots/Music_Ear_Trainer_Scales_1.png" width="400" alt="Scales Quiz">
-  <img src="screenshots/Music_Ear_Trainer_Scales_2.png" width="400" alt="Scales Answer">
-</p>
+56 items across the five modes. The difficulty levels are cumulative: Medium
+includes everything in Easy, and Hard includes everything.
 
-## 🎵 Features
+| Mode | Easy | Medium adds | Hard adds |
+|---|---|---|---|
+| **Intervals** (13) | Unison, major 2nd, major 3rd, perfect 4th, perfect 5th, octave | Minor 2nd, minor 3rd, major 6th, major 7th | Tritone, minor 6th, minor 7th |
+| **Chords** (9) | Major, minor | Diminished, augmented | Major 7th, minor 7th, dominant 7th, sus2, sus4 |
+| **Scales** (14) | Major, natural minor, major pentatonic, minor pentatonic | Harmonic minor, melodic minor, Dorian, Mixolydian | Phrygian, Lydian, Locrian, blues, whole tone, chromatic |
+| **Progressions** (8) | I–IV–V, I–V–vi–IV, vi–IV–I–V | I–vi–IV–V, IV–V–I–vi, I–IV–vi–V | ii–V–I, I–iii–vi–IV |
+| **Perfect pitch** (12) | C, D, E, F, G, A, B | B♭, E♭, F♯ | C♯/D♭, G♯/A♭ |
 
-### Game Modes
+Questions are played within the note range set in the settings.
 
-- **Intervals** - Identify the distance between two notes (unisons, seconds, thirds, fourths, fifths, sixths, sevenths, octaves)
-- **Chords** - Recognize chord types (major, minor, diminished, augmented, 7th chords, etc.)
-- **Progressions** - Identify common chord progressions (I-IV-V, vi-IV-I-V, ii-V-I, etc.)
-- **Perfect Pitch** - Develop absolute pitch by identifying individual notes
-- **Scales** - Recognize different scale types (major, minor, pentatonic, modes, etc.)
+## Requirements
 
-### Difficulty Levels
+- **Node.js 20.9** or newer (required by Next.js 16) and npm
+- A browser with the Web Audio API
+- For the mobile apps: **Node.js 22** or newer (required by the Capacitor 8
+  CLI), plus **Xcode** on a Mac for iOS or **Android Studio** for Android
+- To deploy: a Cloudflare account and the Wrangler CLI, which is installed as a
+  dev dependency
 
-- **Easy** - Basic intervals, common chords, simple progressions
-- **Medium** - Extended intervals, 7th chords, more complex progressions
-- **Hard** - All intervals, advanced chords, jazz progressions, all scales
-
-## 📚 Content Library
-
-### Intervals (13 total)
-
-**Easy (6):**
-
-- Perfect Unison (P1) - 0 semitones
-- Major 2nd (M2) - 2 semitones
-- Major 3rd (M3) - 4 semitones
-- Perfect 4th (P4) - 5 semitones
-- Perfect 5th (P5) - 7 semitones
-- Perfect Octave (P8) - 12 semitones
-
-**Medium (4):**
-
-- Minor 2nd (m2) - 1 semitone
-- Minor 3rd (m3) - 3 semitones
-- Major 6th (M6) - 9 semitones
-- Major 7th (M7) - 11 semitones
-
-**Hard (3):**
-
-- Tritone (TT) - 6 semitones
-- Minor 6th (m6) - 8 semitones
-- Minor 7th (m7) - 10 semitones
-
-### Chord Types (9 total)
-
-**Easy (2):**
-
-- Major - Root, Major 3rd, Perfect 5th
-- Minor - Root, Minor 3rd, Perfect 5th
-
-**Medium (2):**
-
-- Diminished - Root, Minor 3rd, Diminished 5th
-- Augmented - Root, Major 3rd, Augmented 5th
-
-**Hard (5):**
-
-- Major 7th - Root, Major 3rd, Perfect 5th, Major 7th
-- Minor 7th - Root, Minor 3rd, Perfect 5th, Minor 7th
-- Dominant 7th - Root, Major 3rd, Perfect 5th, Minor 7th
-- Suspended 2nd - Root, Major 2nd, Perfect 5th
-- Suspended 4th - Root, Perfect 4th, Perfect 5th
-
-### Scale Types (14 total)
-
-**Easy (4):**
-
-- Major - W-W-H-W-W-W-H pattern
-- Natural Minor - W-H-W-W-H-W-W pattern
-- Major Pentatonic - 5-note scale
-- Minor Pentatonic - 5-note scale
-
-**Medium (4):**
-
-- Harmonic Minor - Raised 7th degree
-- Melodic Minor - Raised 6th and 7th degrees
-- Dorian - Minor mode with raised 6th
-- Mixolydian - Major mode with lowered 7th
-
-**Hard (6):**
-
-- Phrygian - Minor mode with lowered 2nd
-- Lydian - Major mode with raised 4th
-- Locrian - Diminished mode
-- Blues - Blues scale with blue notes
-- Whole Tone - All whole steps
-- Chromatic - All 12 semitones
-
-### Chord Progressions (8 total)
-
-**Easy (3):**
-
-- I–IV–V (Three chord progression)
-- I–V–vi–IV (Pop progression)
-- vi–IV–I–V (Axis progression)
-
-**Medium (3):**
-
-- I–vi–IV–V (50s progression)
-- IV–V–I–vi (Circle progression)
-- I–IV–vi–V (Singer-songwriter)
-
-**Hard (2):**
-
-- ii–V–I (Jazz progression)
-- I–iii–vi–IV (Sensitive female chord progression)
-
-**Total Content:** 44 unique music theory elements across all game modes
-
-_Note: Difficulty levels are cumulative - Medium includes all Easy content, and Hard includes all Easy + Medium content._
-
-### Visual Learning Tools
-
-- **Piano Keyboard** - See notes highlighted on a virtual piano
-- **Music Staff Notation** - View notes on traditional staff notation using VexFlow
-- **Answer Feedback** - Immediate visual and text feedback on your answers
-
-### Audio Features
-
-- **Multiple Sound Types** - Choose from sine, square, sawtooth, triangle waveforms or realistic instrument sounds
-- **Instrument Library** - Piano, guitar, violin, flute, trumpet samples using Tone.js
-- **Playback Modes** - Play notes separately, together, or arpeggio style
-- **Volume Control** - Adjustable volume with visual slider
-
-### Customization
-
-- **Adjustable Range** - Set the lowest and highest notes for questions
-- **Questions Per Quiz** - Configure how many questions per session (5-100)
-- **Time Limits** - Optional time limits per question
-- **Accidentals** - Choose sharps, flats, both, or naturals only
-- **Theme** - Dark and light mode support
-
-### Progress Tracking
-
-- **Score Tracking** - Real-time score display with percentage accuracy
-- **Streak Counter** - Track your current and best answer streaks
-- **Statistics** - Per-mode statistics (total questions, correct answers, accuracy)
-- **Local Storage** - Your stats persist between sessions
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18.x or higher
-- npm or yarn package manager
-
-### Installation
-
-1. Clone the repository:
+## Installation
 
 ```bash
 git clone https://github.com/geoffmyers/music-ear-trainer.git
 cd music-ear-trainer
-```
-
-2. Install dependencies:
-
-```bash
 npm install
-```
-
-3. Run the development server:
-
-```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+Open [http://localhost:3000](http://localhost:3000). No environment variables
+are needed.
 
-### Building for Production
+## Usage
+
+### How to play
+
+1. **Choose a mode**: Intervals, Chords, Progressions, Perfect Pitch or Scales.
+2. **Choose a difficulty**: Easy, Medium or Hard.
+3. **Adjust the settings** if you like, from the panel on the right.
+4. **Press ▶️ Play Sound** to hear the question.
+5. **Pick an answer** from the choices.
+6. **Read the feedback**: whether you were right, with the answer shown on the
+   keyboard and the staff.
+7. **Press Next Question** to carry on. A results screen follows the last
+   question.
+
+Audio starts only after you interact with the page, as browsers require.
+
+### Settings
+
+| Setting | Options |
+|---|---|
+| Questions per Quiz | 5 to 100 |
+| Time Limit | None, or 5, 10, 15, 20, 30, 45 or 60 seconds |
+| Lowest Note, Highest Note | The range questions are drawn from |
+| Sound Type | A waveform or a sampled instrument |
+| Volume | 0 to 100% |
+| Accidentals | Sharps, flats, both, or naturals only |
+| Playback Style | Notes played separately or together |
+| Allow multiple plays | Whether the question can be replayed |
+| Color Theme | Dark or light |
+
+Settings and statistics are saved in the browser's local storage.
+
+### Building and deploying
 
 ```bash
-# Create optimized production build
-npm run build
-
-# Preview the production build
-npm run start
+npm run build          # static export to out/
+npx serve out          # preview the export locally
 ```
 
-### Deployment to Cloudflare Workers
+`npm run start` does not work for this project: Next.js's `next start` refuses
+to serve a static export.
 
-The app is deployed to Cloudflare Workers at **https://music-ear-trainer.geoffmyers.com/**
+The live site is a [Cloudflare Worker with static assets](https://developers.cloudflare.com/workers/static-assets/)
+serving `out/`. To deploy your own copy, change `account_id` in
+`wrangler.toml` to your Cloudflare account, then:
 
 ```bash
-# Deploy to Cloudflare Workers
-npm run deploy
+npm run deploy         # next build && wrangler deploy
 ```
 
-The app will be exported as a static site and deployed to Cloudflare Workers.
+### Mobile apps
 
-## 🎮 How to Play
+The `ios/` and `android/` projects wrap the same static build with Capacitor.
 
-1. **Select a Game Mode** - Choose from Intervals, Chords, Progressions, Perfect Pitch, or Scales
-2. **Choose Difficulty** - Select Easy, Medium, or Hard based on your skill level
-3. **Adjust Settings** - Customize the experience using the Settings panel (click the toggle on the right)
-4. **Play Sound** - Click the "Play Sound" button to hear the musical question
-5. **Select Answer** - Choose from the multiple-choice options
-6. **Get Feedback** - See if you're correct and view the visualization
-7. **Continue** - Click "Next Question" to continue practicing
-
-## 🏗️ Project Structure
-
+```bash
+npm run cap:ios          # build, sync, and open the project in Xcode
+npm run cap:android      # build, sync, and open the project in Android Studio
+npm run cap:run:ios      # build, sync, and run on a device or simulator
+npm run cap:run:android
 ```
-music-ear-trainer/
-├── app/
-│   ├── components/          # React components
-│   │   ├── AnswerVisualization.tsx
-│   │   ├── Confetti.tsx
-│   │   ├── DifficultySelector.tsx
-│   │   ├── FeedbackDisplay.tsx
-│   │   ├── Footer.tsx
-│   │   ├── GameModeSelector.tsx
-│   │   ├── Header.tsx
-│   │   ├── MusicStaff.tsx
-│   │   ├── PianoKeyboard.tsx
-│   │   ├── QuizInterface.tsx
-│   │   ├── ResultsScreen.tsx
-│   │   ├── ScoreDisplay.tsx
-│   │   └── SettingsPanel.tsx
-│   ├── globals.css          # Global styles
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Main game page
-├── lib/
-│   ├── audio/               # Audio generation
-│   │   ├── AudioEngine.ts
-│   │   ├── chordGenerator.ts
-│   │   ├── InstrumentLoader.ts
-│   │   ├── intervalGenerator.ts
-│   │   ├── pitchGenerator.ts
-│   │   ├── progressionGenerator.ts
-│   │   └── scaleGenerator.ts
-│   ├── context/             # React context
-│   │   └── GlobalSettingsContext.tsx
-│   ├── game/                # Game logic
-│   │   ├── difficultyConfig.ts
-│   │   ├── localStorage.ts
-│   │   ├── quizEngine.ts
-│   │   └── scoreManager.ts
-│   ├── music/               # Music theory
-│   │   ├── chords.ts
-│   │   ├── intervals.ts
-│   │   ├── noteFrequencies.ts
-│   │   ├── pitches.ts
-│   │   ├── progressions.ts
-│   │   └── scales.ts
-│   └── types/               # TypeScript types
-│       ├── audio.ts
-│       ├── game.ts
-│       ├── music.ts
-│       └── settings.ts
-├── public/                  # Static assets
-│   ├── favicon.ico
-│   └── instruments/         # Instrument samples
-├── next.config.mjs          # Next.js configuration
-├── package.json             # Dependencies
-└── tsconfig.json            # TypeScript configuration
-```
-
-## ⚙️ Configuration
-
-### Global Settings
-
-Access the settings panel by clicking the "Settings" toggle on the right side of the screen:
-
-- **Questions per Quiz** - Set how many questions per session
-- **Time Limit** - Optional time limit per question (5s-60s or no limit)
-- **Lowest Note** - Set the lowest note that can appear
-- **Highest Note** - Set the highest note that can appear
-- **Sound Type** - Choose waveform or instrument sound
-- **Volume** - Adjust playback volume
-- **Accidentals** - Choose how sharps/flats appear
-- **Playback Style** - Play notes separately or together
-- **Allow Multiple Plays** - Enable/disable replay button
-- **Color Theme** - Switch between dark and light mode
-
-### Environment Variables
-
-No environment variables are required for this application.
-
-## 🛠️ Technology Stack
-
-- **Framework** - [Next.js 15](https://nextjs.org/) (React 19, App Router)
-- **Language** - [TypeScript 5](https://www.typescriptlang.org/)
-- **Audio** - [Tone.js](https://tonejs.github.io/) for audio synthesis and instrument samples
-- **Music Notation** - [VexFlow](https://www.vexflow.com/) for rendering music staff notation
-- **Styling** - CSS Variables with responsive design
-- **Deployment** - [Cloudflare Workers](https://workers.cloudflare.com/) (static export)
-- **State Management** - React Context API for global settings
-- **Storage** - Browser localStorage for statistics persistence
-
-## 🧪 Development
-
-### Code Quality
-
-- TypeScript strict mode enabled
-- Component-based architecture
-- Custom hooks for game logic
-- Comprehensive type definitions
-
-### Performance Optimizations
-
-- Static site generation (SSG)
-- Client-side only audio synthesis
-- Lazy loading of instrument samples
-- Efficient state management
-
-## 📝 License
-
-GPL-2.0 License - See [LICENSE.md](LICENSE.md) for details.
-
-## 🙏 Acknowledgments
-
-- [Tone.js](https://tonejs.github.io/) for audio synthesis
-- [VexFlow](https://www.vexflow.com/) for music notation rendering
-- [Next.js](https://nextjs.org/) for the framework
-- Music theory based on standard Western music notation
-
-## 📧 Contact
-
-For questions or feedback, please visit [geoffmyers.com](https://www.geoffmyers.com)
-
----
-
-Built with ❤️ using Next.js, React, and TypeScript
-
-## Credits
-
-Audio synthesis and scheduling by [Tone.js](https://tonejs.github.io/); music
-notation rendering by [VexFlow](https://www.vexflow.com/). Built with
-[Next.js](https://nextjs.org/) and [React](https://react.dev/), packaged for
-mobile with [Capacitor](https://capacitorjs.com/).
-
-Instrument samples come from
-[tonejs-instruments](https://github.com/nbrosowsky/tonejs-instruments), used
-under **CC BY 3.0**.
 
 ## Architecture
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for how the project fits together — the
-layout, the data flow, and the constraints worth knowing before changing it.
+A single-page Next.js app exported as static files. There are no server routes;
+everything runs in the browser, and navigation between screens is React state
+rather than URLs.
+
+```
+page.tsx ─► GameModeSelector ─► DifficultySelector ─► QuizInterface ─► ResultsScreen
+                                                          │
+                          quizEngine ◄─ lib/music + data/  │  AnswerVisualization
+                          AudioEngine (Tone.js) ◄─────────┘   ├─ PianoKeyboard
+                                                              └─ MusicStaff (VexFlow)
+```
+
+| Path | Role |
+|---|---|
+| `app/page.tsx` | The game flow: mode, difficulty, quiz, results |
+| `app/components/` | Screens, the settings footer, piano keyboard, staff notation and confetti |
+| `lib/audio/` | `AudioEngine` (Tone.js), sample loading, and a generator per mode |
+| `lib/music/` | Intervals, chords, scales, progressions and note maths |
+| `data/` | The intervals, chords, scales and progressions as JSON |
+| `lib/game/` | Question generation, difficulty settings, scoring and saved statistics |
+| `lib/context/` | Global settings, persisted to local storage |
+| `public/samples/` | Instrument samples and their credits |
+| `ios/`, `android/`, `capacitor.config.ts` | The Capacitor mobile projects |
+| `wrangler.toml` | The Cloudflare deployment |
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for more detail.
+
+## Credits
+
+- Audio synthesis and scheduling by [Tone.js](https://tonejs.github.io/); staff
+  notation by [VexFlow](https://www.vexflow.com/).
+- Built with [Next.js](https://nextjs.org/) and [React](https://react.dev/),
+  packaged for mobile with [Capacitor](https://capacitorjs.com/), and deployed
+  with [Wrangler](https://developers.cloudflare.com/workers/wrangler/).
+- Instrument samples from
+  [tonejs-instruments](https://github.com/nbrosowsky/tonejs-instruments) by
+  Nicholaus Brosowsky, used under
+  [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). See
+  [public/samples/2026-08-14-sample-credits.md](public/samples/2026-08-14-sample-credits.md).
+
+Written by Geoff Myers ([geoffmyers.com](https://www.geoffmyers.com)).
 
 ## Contributing
 
-Bug reports and pull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
+Bug reports and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md)
 for setup, checks and how this repository is published.
+
+## License
+
+GPL-2.0. See [LICENSE.md](LICENSE.md).

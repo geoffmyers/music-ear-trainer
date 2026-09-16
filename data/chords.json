@@ -1,0 +1,69 @@
+{
+  "$schema": "./schemas/chords.schema.json",
+  "description": "Chord type definitions for ear training",
+  "chords": [
+    {
+      "id": "maj",
+      "name": "Major",
+      "intervals": [0, 4, 7],
+      "abbreviation": "maj",
+      "difficulty": "easy"
+    },
+    {
+      "id": "min",
+      "name": "Minor",
+      "intervals": [0, 3, 7],
+      "abbreviation": "min",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dim",
+      "name": "Diminished",
+      "intervals": [0, 3, 6],
+      "abbreviation": "dim",
+      "difficulty": "medium"
+    },
+    {
+      "id": "aug",
+      "name": "Augmented",
+      "intervals": [0, 4, 8],
+      "abbreviation": "aug",
+      "difficulty": "medium"
+    },
+    {
+      "id": "maj7",
+      "name": "Major 7th",
+      "intervals": [0, 4, 7, 11],
+      "abbreviation": "maj7",
+      "difficulty": "hard"
+    },
+    {
+      "id": "min7",
+      "name": "Minor 7th",
+      "intervals": [0, 3, 7, 10],
+      "abbreviation": "min7",
+      "difficulty": "hard"
+    },
+    {
+      "id": "dom7",
+      "name": "Dominant 7th",
+      "intervals": [0, 4, 7, 10],
+      "abbreviation": "7",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sus2",
+      "name": "Suspended 2nd",
+      "intervals": [0, 2, 7],
+      "abbreviation": "sus2",
+      "difficulty": "hard"
+    },
+    {
+      "id": "sus4",
+      "name": "Suspended 4th",
+      "intervals": [0, 5, 7],
+      "abbreviation": "sus4",
+      "difficulty": "hard"
+    }
+  ]
+}

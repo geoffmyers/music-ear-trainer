@@ -16,6 +16,7 @@ answer → feedback + visualisation → next question → results
 |---|---|
 | `lib/audio/` | `AudioEngine.ts` (a Tone.js singleton) plus one generator per mode — interval, chord, progression, scale, pitch. `InstrumentLoader.ts` lazily loads sampled instruments and falls back to oscillators. |
 | `lib/music/` | The theory layer: note frequencies and transposition, interval and chord definitions, progressions, scales. Pure data and functions. |
+| `data/` | The interval, chord, scale and progression definitions as JSON, imported by `lib/music/` as `@/data/…`. They live inside the project so that a clone builds on its own. |
 | `lib/game/` | `quizEngine.ts` generates questions, `difficultyConfig.ts` decides what appears at each level, `scoreManager.ts` grades, `localStorage.ts` persists stats with migration. |
 | `lib/context/` | `GlobalSettingsContext` — user preferences, persisted automatically. |
 | `app/components/` | UI, including `PianoKeyboard` and a VexFlow `MusicStaff` for answer visualisation. |

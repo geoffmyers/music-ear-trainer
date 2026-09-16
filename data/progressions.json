@@ -1,0 +1,70 @@
+{
+  "$schema": "./schemas/progressions.schema.json",
+  "description": "Chord progression definitions for ear training",
+  "progressions": [
+    {
+      "id": "I-IV-V",
+      "name": "I–IV–V",
+      "romanNumerals": ["I", "IV", "V"],
+      "chordDegrees": [1, 4, 5],
+      "chordQualities": ["major", "major", "major"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "I-V-vi-IV",
+      "name": "I–V–vi–IV",
+      "romanNumerals": ["I", "V", "vi", "IV"],
+      "chordDegrees": [1, 5, 6, 4],
+      "chordQualities": ["major", "major", "minor", "major"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vi-IV-I-V",
+      "name": "vi–IV–I–V",
+      "romanNumerals": ["vi", "IV", "I", "V"],
+      "chordDegrees": [6, 4, 1, 5],
+      "chordQualities": ["minor", "major", "major", "major"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "I-vi-IV-V",
+      "name": "I–vi–IV–V",
+      "romanNumerals": ["I", "vi", "IV", "V"],
+      "chordDegrees": [1, 6, 4, 5],
+      "chordQualities": ["major", "minor", "major", "major"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "IV-V-I-vi",
+      "name": "IV–V–I–vi",
+      "romanNumerals": ["IV", "V", "I", "vi"],
+      "chordDegrees": [4, 5, 1, 6],
+      "chordQualities": ["major", "major", "major", "minor"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "I-IV-vi-V",
+      "name": "I–IV–vi–V",
+      "romanNumerals": ["I", "IV", "vi", "V"],
+      "chordDegrees": [1, 4, 6, 5],
+      "chordQualities": ["major", "major", "minor", "major"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ii-V-I",
+      "name": "ii–V–I",
+      "romanNumerals": ["ii", "V", "I"],
+      "chordDegrees": [2, 5, 1],
+      "chordQualities": ["minor", "major", "major"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "I-iii-vi-IV",
+      "name": "I–iii–vi–IV",
+      "romanNumerals": ["I", "iii", "vi", "IV"],
+      "chordDegrees": [1, 3, 6, 4],
+      "chordQualities": ["major", "minor", "minor", "major"],
+      "difficulty": "hard"
+    }
+  ]
+}

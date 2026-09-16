@@ -1,0 +1,73 @@
+{
+  "$schema": "./schemas/music-config.schema.json",
+  "description": "Music theory configuration and constants",
+  "tuning": {
+    "referenceNote": "A4",
+    "referenceFrequency": 440,
+    "temperament": "equal"
+  },
+  "notes": [
+    { "name": "C", "index": 0 },
+    { "name": "C#", "aliases": ["Db"], "index": 1 },
+    { "name": "D", "index": 2 },
+    { "name": "D#", "aliases": ["Eb"], "index": 3 },
+    { "name": "E", "index": 4 },
+    { "name": "F", "index": 5 },
+    { "name": "F#", "aliases": ["Gb"], "index": 6 },
+    { "name": "G", "index": 7 },
+    { "name": "G#", "aliases": ["Ab"], "index": 8 },
+    { "name": "A", "index": 9 },
+    { "name": "A#", "aliases": ["Bb"], "index": 10 },
+    { "name": "B", "index": 11 }
+  ],
+  "octaveRange": {
+    "min": 2,
+    "max": 6,
+    "default": 4
+  },
+  "gameModes": [
+    {
+      "id": "intervals",
+      "name": "Intervals",
+      "description": "Identify the interval between two notes"
+    },
+    {
+      "id": "chords",
+      "name": "Chords",
+      "description": "Identify chord types"
+    },
+    {
+      "id": "scales",
+      "name": "Scales",
+      "description": "Identify scale types"
+    },
+    {
+      "id": "progressions",
+      "name": "Progressions",
+      "description": "Identify chord progressions"
+    },
+    {
+      "id": "pitches",
+      "name": "Perfect Pitch",
+      "description": "Identify individual notes"
+    }
+  ],
+  "difficulties": [
+    {
+      "id": "easy",
+      "name": "Easy",
+      "description": "Basic intervals, chords, and scales"
+    },
+    {
+      "id": "medium",
+      "name": "Medium",
+      "description": "Includes more complex intervals and chords"
+    },
+    {
+      "id": "hard",
+      "name": "Hard",
+      "description": "All intervals, chords, scales, and progressions"
+    }
+  ],
+  "majorScaleChordQualities": ["major", "minor", "minor", "major", "major", "minor", "diminished"]
+}

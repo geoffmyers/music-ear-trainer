@@ -1,5 +1,5 @@
 import type { Difficulty } from '@/lib/types/game';
-import scalesData from '@shared/music-ear-trainer/data/scales.json';
+import scalesData from '@/data/scales.json';
 
 export interface ScaleType {
   id: string;

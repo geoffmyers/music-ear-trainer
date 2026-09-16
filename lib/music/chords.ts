@@ -1,6 +1,6 @@
 import type { ChordType, NoteOctave } from '@/lib/types/music';
 import { addSemitones } from './noteFrequencies';
-import chordsData from '@shared/music-ear-trainer/data/chords.json';
+import chordsData from '@/data/chords.json';
 
 export const CHORD_TYPES: ChordType[] = chordsData.chords as ChordType[];
 

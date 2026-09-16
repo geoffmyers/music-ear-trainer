@@ -1,5 +1,5 @@
 import type { Interval } from '@/lib/types/music';
-import intervalsData from '@shared/music-ear-trainer/data/intervals.json';
+import intervalsData from '@/data/intervals.json';
 
 export const INTERVALS: Interval[] = intervalsData.intervals as Interval[];
 

@@ -1,7 +1,7 @@
 import type { Progression, ChordType, Key, NoteOctave } from '@/lib/types/music';
 import { CHORD_TYPES } from './chords';
 import { addSemitones } from './noteFrequencies';
-import progressionsData from '@shared/music-ear-trainer/data/progressions.json';
+import progressionsData from '@/data/progressions.json';
 
 export const PROGRESSIONS: Progression[] = progressionsData.progressions as Progression[];
 
