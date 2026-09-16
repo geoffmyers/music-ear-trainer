@@ -102,6 +102,10 @@ Questions are played within the note range set in the settings.
 
 ## Installation
 
+The iOS and Android apps are on the
+[Releases](https://github.com/geoffmyers/music-ear-trainer/releases/latest)
+page: an unsigned iOS build to sign yourself, and a debug-signed Android APK.
+
 ```bash
 git clone https://github.com/geoffmyers/music-ear-trainer.git
 cd music-ear-trainer

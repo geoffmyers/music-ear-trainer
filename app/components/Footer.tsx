@@ -291,7 +291,7 @@ export default function Footer() {
           <a href="https://react.dev" target="_blank" rel="noopener noreferrer">React</a> — all MIT
         </div>
         <div className="version-info">
-          Last Updated: {new Date(process.env.NEXT_PUBLIC_BUILD_DATE || '').toLocaleString('en-US', { timeZone: 'America/Chicago', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true })}
+          Last Updated: {new Date(process.env.NEXT_PUBLIC_BUILD_DATE || '').toLocaleString('en-US', { timeZone: 'UTC', timeZoneName: 'short', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true })}
         </div>
       </footer>
     </>
