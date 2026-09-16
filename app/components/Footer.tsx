@@ -268,10 +268,12 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright Footer */}
+      {/* Author and licence (the GPL is the only licence; no separate copyright notice) */}
       <footer className="copyright-footer">
         <div className="copyright">
-          © {new Date().getFullYear()} <a href="https://www.geoffmyers.com" target="_blank" rel="noopener noreferrer">Geoff Myers</a>
+          By <a href="https://www.geoffmyers.com" target="_blank" rel="noopener noreferrer">Geoff Myers</a>
+          {' · '}
+          <a href="https://github.com/geoffmyers/music-ear-trainer/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">GPL-3.0-or-later</a>
         </div>
         {/*
           The samples are the part that legally needs this: tonejs-instruments

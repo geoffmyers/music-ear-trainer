@@ -33,7 +33,7 @@
   - Flute
   - Trumpet
 - Add new game mode: scales (major, melodic minor, harmonic minor, natural minor, pentatonic, etc.)
-- Add "© 2025 Geoff Myers" to the footer of all pages linked to https://www.geoffmyers.com
+- Credit "Geoff Myers" in the footer of all pages, linked to https://www.geoffmyers.com, with the GPL-3.0-or-later licence (done; no separate copyright notice)
 - After the user submits an answer to a question, show the note/pitch names as text, as a piano keyboard visualization, and in musical staff notation
 - Add global settings in the footer of all pages for the following options:
   - Color theme (options: light, dark; default: dark)
