@@ -378,6 +378,11 @@ Instrument samples come from
 [tonejs-instruments](https://github.com/nbrosowsky/tonejs-instruments), used
 under **CC BY 3.0**.
 
+## Architecture
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for how the project fits together — the
+layout, the data flow, and the constraints worth knowing before changing it.
+
 ## Contributing
 
 Bug reports and pull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
