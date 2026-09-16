@@ -1,8 +1,3 @@
----
-title: Architecture
-description: How Music Ear Trainer is structured: audio generation, music theory and quiz flow.
----
-
 # Architecture
 
 A **static export** single-page app. All state is client-side; navigation is

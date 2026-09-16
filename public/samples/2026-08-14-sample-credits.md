@@ -1,10 +1,3 @@
----
-title: Instrument sample credits
-description: Where the piano, guitar, violin, flute and trumpet samples came from, and the licence that requires them to be credited.
-created: 2026-08-14
-tags: [music, licensing, attribution]
----
-
 # Instrument sample credits
 
 These samples come from
