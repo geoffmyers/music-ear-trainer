@@ -9,7 +9,6 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 <!-- BADGES:END -->
 
-
 An interactive web-based ear training game that helps musicians develop their ability to identify musical intervals, chords, progressions, scales, and perfect pitch.
 
 ## Screenshots
@@ -386,5 +385,4 @@ layout, the data flow, and the constraints worth knowing before changing it.
 ## Contributing
 
 Bug reports and pull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
-for setup, checks and how this repository is published, and
-[ARCHITECTURE.md](ARCHITECTURE.md) for how the project fits together.
+for setup, checks and how this repository is published.
