@@ -1,6 +1,7 @@
 {
   "name": "music-ear-trainer",
   "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
   "private": true,
   "description": "Interactive music ear training game for intervals, chords, and progressions",
   "scripts": {

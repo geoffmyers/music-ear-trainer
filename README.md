@@ -9,7 +9,7 @@
 ![React 19.2.4](https://img.shields.io/badge/React-19.2.4-61dafb?style=flat-square&logo=react)
 ![TypeScript 5.7.2](https://img.shields.io/badge/TypeScript-5.7.2-3178c6?style=flat-square&logo=typescript)
 ![Tone.js 15.1.22](https://img.shields.io/badge/Tone.js-15.1.22-f22f46?style=flat-square)
-[![Licence GPL--2.0](https://img.shields.io/badge/licence-GPL--2.0-blue?style=flat-square)](LICENSE.md)
+[![Licence GPL-3.0-or-later](https://img.shields.io/badge/licence-GPL--3.0--or--later-blue?style=flat-square)](LICENSE.md)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 <!-- BADGES:END -->
 
@@ -224,4 +224,16 @@ for setup, checks and how this repository is published.
 
 ## License
 
-GPL-2.0. See [LICENSE.md](LICENSE.md).
+Copyright © 2026 Geoff Myers
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See [LICENSE.md](LICENSE.md) for the full text of the GNU
+General Public License.
+
+SPDX-License-Identifier: `GPL-3.0-or-later`
