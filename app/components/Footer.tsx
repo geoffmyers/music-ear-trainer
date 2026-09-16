@@ -273,6 +273,21 @@ export default function Footer() {
         <div className="copyright">
           © {new Date().getFullYear()} <a href="https://www.geoffmyers.com" target="_blank" rel="noopener noreferrer">Geoff Myers</a>
         </div>
+        {/*
+          The samples are the part that legally needs this: tonejs-instruments
+          releases them CC BY 3.0, which requires the credit to travel with
+          them, and nothing in this repo recorded where they came from until
+          now. The libraries below are permissive and credited as courtesy.
+        */}
+        <div className="credits-info">
+          Instrument samples from{' '}
+          <a href="https://github.com/nbrosowsky/tonejs-instruments" target="_blank" rel="noopener noreferrer">tonejs-instruments</a>{' '}
+          (<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>) ·
+          audio by <a href="https://tonejs.github.io/" target="_blank" rel="noopener noreferrer">Tone.js</a> ·
+          notation by <a href="https://www.vexflow.com/" target="_blank" rel="noopener noreferrer">VexFlow</a> ·
+          built with <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">Next.js</a> and{' '}
+          <a href="https://react.dev" target="_blank" rel="noopener noreferrer">React</a> — all MIT
+        </div>
         <div className="version-info">
           Last Updated: {new Date(process.env.NEXT_PUBLIC_BUILD_DATE || '').toLocaleString('en-US', { timeZone: 'America/Chicago', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true })}
         </div>

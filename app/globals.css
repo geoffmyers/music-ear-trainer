@@ -1144,3 +1144,28 @@ body {
     gap: 1rem;
   }
 }
+
+/*
+ * Sample and library credits. The tonejs-instruments samples are CC BY 3.0, so
+ * this line is a licence obligation rather than a courtesy - it was missing
+ * entirely, and nothing in the repo recorded where the samples came from.
+ */
+.credits-info {
+  font-size: 0.68rem;
+  line-height: 1.6;
+  color: var(--text-muted, #64748b);
+  text-align: center;
+  padding: 0 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.credits-info a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.credits-info a:hover {
+  color: var(--accent, #38bdf8);
+}

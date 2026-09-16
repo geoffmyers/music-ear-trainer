@@ -360,3 +360,20 @@ For questions or feedback, please visit [geoffmyers.com](https://www.geoffmyers.
 ---
 
 Built with ❤️ using Next.js, React, and TypeScript
+
+## Credits
+
+Audio synthesis and scheduling by [Tone.js](https://tonejs.github.io/); music
+notation rendering by [VexFlow](https://www.vexflow.com/). Built with
+[Next.js](https://nextjs.org/) and [React](https://react.dev/), packaged for
+mobile with [Capacitor](https://capacitorjs.com/).
+
+Instrument samples come from
+[tonejs-instruments](https://github.com/nbrosowsky/tonejs-instruments), used
+under **CC BY 3.0**.
+
+## Contributing
+
+Bug reports and pull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
+for setup, checks and how this repository is published, and
+[ARCHITECTURE.md](ARCHITECTURE.md) for how the project fits together.
