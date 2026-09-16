@@ -1,10 +1,16 @@
 # Music Ear Trainer
 
-An interactive web-based ear training game that helps musicians develop their ability to identify musical intervals, chords, progressions, scales, and perfect pitch.
+<!-- BADGES:START -->
+![Next.js 16.1.6](https://img.shields.io/badge/Next.js-16.1.6-black?style=flat-square&logo=nextdotjs)
+![React 19.2.4](https://img.shields.io/badge/React-19.2.4-61dafb?style=flat-square&logo=react)
+![TypeScript 5.7.2](https://img.shields.io/badge/TypeScript-5.7.2-3178c6?style=flat-square&logo=typescript)
+![Tone.js 15.1.22](https://img.shields.io/badge/Tone.js-15.1.22-f22f46?style=flat-square)
+[![Licence GPL--2.0](https://img.shields.io/badge/licence-GPL--2.0-blue?style=flat-square)](LICENSE.md)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
+<!-- BADGES:END -->
 
-![Music Ear Trainer](https://img.shields.io/badge/Next.js-15.5.9-black?style=flat-square&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.7.2-blue?style=flat-square&logo=typescript)
-![React](https://img.shields.io/badge/React-19.0.0-61dafb?style=flat-square&logo=react)
+
+An interactive web-based ear training game that helps musicians develop their ability to identify musical intervals, chords, progressions, scales, and perfect pitch.
 
 ## Screenshots
 
