@@ -19,6 +19,13 @@ export default function DifficultySelector({ mode, onSelectDifficulty, onBack, o
     scales: 'Scales'
   };
 
+  const handleCardKeyDown = (e: React.KeyboardEvent, difficulty: Difficulty) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onSelectDifficulty(difficulty);
+    }
+  };
+
   return (
     <div className="difficulty-selector">
       <Header onHomeClick={onHomeClick} />
@@ -33,7 +40,14 @@ export default function DifficultySelector({ mode, onSelectDifficulty, onBack, o
       </div>
 
       <div className="difficulty-grid">
-        <div className="difficulty-card" onClick={() => onSelectDifficulty('easy')}>
+        <div
+          className="difficulty-card"
+          role="button"
+          tabIndex={0}
+          onClick={() => onSelectDifficulty('easy')}
+          onKeyDown={(e) => handleCardKeyDown(e, 'easy')}
+          aria-label="Easy difficulty"
+        >
           <h2>Easy</h2>
           <ul className="difficulty-features">
             <li>3 answer options</li>
@@ -44,7 +58,14 @@ export default function DifficultySelector({ mode, onSelectDifficulty, onBack, o
           </ul>
         </div>
 
-        <div className="difficulty-card" onClick={() => onSelectDifficulty('medium')}>
+        <div
+          className="difficulty-card"
+          role="button"
+          tabIndex={0}
+          onClick={() => onSelectDifficulty('medium')}
+          onKeyDown={(e) => handleCardKeyDown(e, 'medium')}
+          aria-label="Medium difficulty"
+        >
           <h2>Medium</h2>
           <ul className="difficulty-features">
             <li>4 answer options</li>
@@ -58,7 +79,14 @@ export default function DifficultySelector({ mode, onSelectDifficulty, onBack, o
           </ul>
         </div>
 
-        <div className="difficulty-card" onClick={() => onSelectDifficulty('hard')}>
+        <div
+          className="difficulty-card"
+          role="button"
+          tabIndex={0}
+          onClick={() => onSelectDifficulty('hard')}
+          onKeyDown={(e) => handleCardKeyDown(e, 'hard')}
+          aria-label="Hard difficulty"
+        >
           <h2>Hard</h2>
           <ul className="difficulty-features">
             <li>6 answer options</li>

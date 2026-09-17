@@ -29,6 +29,13 @@ npm ci
 npm run build
 ```
 
+**test** (Node.js 22, from the repository root):
+
+```bash
+npm ci
+npm test
+```
+
 <!-- CHECKS:END -->
 
 <!-- RELEASES:START -->

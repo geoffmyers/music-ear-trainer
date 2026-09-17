@@ -7,41 +7,79 @@ interface Props {
   onSelectMode: (mode: GameMode) => void;
 }
 
+interface ModeCardProps {
+  onSelect: () => void;
+  icon: string;
+  title: string;
+  description: string;
+}
+
+// Cards are keyboard-operable buttons styled as cards, not click-only divs:
+// role="button" plus a real tabIndex and Enter/Space handling.
+function ModeCard({ onSelect, icon, title, description }: ModeCardProps) {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onSelect();
+    }
+  };
+
+  return (
+    <div
+      className="mode-card"
+      role="button"
+      tabIndex={0}
+      onClick={onSelect}
+      onKeyDown={handleKeyDown}
+      aria-label={`${title}: ${description}`}
+    >
+      <div className="mode-icon" aria-hidden="true">{icon}</div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+  );
+}
+
 export default function GameModeSelector({ onSelectMode }: Props) {
   return (
     <div className="mode-selector">
       <Header showSubtitle />
 
       <div className="mode-grid">
-        <div className="mode-card" onClick={() => onSelectMode('intervals')}>
-          <div className="mode-icon">🎵</div>
-          <h2>Intervals</h2>
-          <p>Test your ability to identify the distance between two notes. From unisons to octaves.</p>
-        </div>
+        <ModeCard
+          onSelect={() => onSelectMode('intervals')}
+          icon="🎵"
+          title="Intervals"
+          description="Test your ability to identify the distance between two notes. From unisons to octaves."
+        />
 
-        <div className="mode-card" onClick={() => onSelectMode('chords')}>
-          <div className="mode-icon">🎹</div>
-          <h2>Chords</h2>
-          <p>Recognize different chord types including major, minor, diminished, and augmented.</p>
-        </div>
+        <ModeCard
+          onSelect={() => onSelectMode('chords')}
+          icon="🎹"
+          title="Chords"
+          description="Recognize different chord types including major, minor, diminished, and augmented."
+        />
 
-        <div className="mode-card" onClick={() => onSelectMode('progressions')}>
-          <div className="mode-icon">🎼</div>
-          <h2>Progressions</h2>
-          <p>Identify common chord progressions used in popular music.</p>
-        </div>
+        <ModeCard
+          onSelect={() => onSelectMode('progressions')}
+          icon="🎼"
+          title="Progressions"
+          description="Identify common chord progressions used in popular music."
+        />
 
-        <div className="mode-card" onClick={() => onSelectMode('scales')}>
-          <div className="mode-icon">🎶</div>
-          <h2>Scales</h2>
-          <p>Learn to recognize different scale types from major and minor to modes and exotic scales.</p>
-        </div>
+        <ModeCard
+          onSelect={() => onSelectMode('scales')}
+          icon="🎶"
+          title="Scales"
+          description="Learn to recognize different scale types from major and minor to modes and exotic scales."
+        />
 
-        <div className="mode-card" onClick={() => onSelectMode('pitches')}>
-          <div className="mode-icon">🎯</div>
-          <h2>Perfect Pitch</h2>
-          <p>Develop absolute pitch by identifying individual notes without any reference.</p>
-        </div>
+        <ModeCard
+          onSelect={() => onSelectMode('pitches')}
+          icon="🎯"
+          title="Perfect Pitch"
+          description="Develop absolute pitch by identifying individual notes without any reference."
+        />
       </div>
     </div>
   );

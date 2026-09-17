@@ -23,6 +23,9 @@ export interface AudioQuestionData {
     key: Key;
     progression: Progression;
     tempo: number;
+    // Octave the progression's key sits on. Defaults to 4 (getProgressionChords'
+    // own default) when absent, for callers built before this field existed.
+    baseOctave?: number;
   };
   // For perfect pitch
   pitch?: {

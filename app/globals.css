@@ -150,6 +150,12 @@ body {
   background: var(--bg-secondary);
 }
 
+.mode-card:focus-visible,
+.difficulty-card:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
 .mode-icon {
   font-size: 4rem;
   margin-bottom: 1rem;
@@ -1065,6 +1071,14 @@ body {
   width: 100%;
 }
 
+.setting-hint {
+  margin: 0.4rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  opacity: 0.85;
+}
+
 /* Copyright Footer */
 .copyright-footer {
   position: fixed;
@@ -1102,6 +1116,34 @@ body {
 .copyright a:hover {
   opacity: 0.8;
   text-decoration: underline;
+}
+
+/* Source-code link (owner directive: shown on every screen via the footer) */
+.github-source-link {
+  text-align: center;
+  padding: 0 1rem 0.25rem;
+}
+
+.github-source-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.github-source-link a:hover,
+.github-source-link a:focus-visible {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.github-source-link a:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 /* Mobile responsive for settings panel */

@@ -5,7 +5,7 @@
 # Music Ear Trainer
 
 <!-- BADGES:START -->
-![Next.js 16.1.6](https://img.shields.io/badge/Next.js-16.1.6-black?style=flat-square&logo=nextdotjs)
+![Next.js 16.3.5](https://img.shields.io/badge/Next.js-16.3.5-black?style=flat-square&logo=nextdotjs)
 ![React 19.2.4](https://img.shields.io/badge/React-19.2.4-61dafb?style=flat-square&logo=react)
 ![TypeScript 5.7.2](https://img.shields.io/badge/TypeScript-5.7.2-3178c6?style=flat-square&logo=typescript)
 ![Tone.js 15.1.22](https://img.shields.io/badge/Tone.js-15.1.22-f22f46?style=flat-square)

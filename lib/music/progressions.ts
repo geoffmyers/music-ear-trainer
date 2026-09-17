@@ -19,8 +19,12 @@ export function degreeToChordType(degree: number): ChordType {
   return CHORD_TYPES.find(c => c.id === chordTypeId)!;
 }
 
-export function getProgressionChords(key: Key, progression: Progression): { degree: number; chord: ChordType; rootNote: NoteOctave }[] {
-  const keyNote: NoteOctave = { note: key, octave: 4 };
+export function getProgressionChords(
+  key: Key,
+  progression: Progression,
+  baseOctave: number = 4
+): { degree: number; chord: ChordType; rootNote: NoteOctave }[] {
+  const keyNote: NoteOctave = { note: key, octave: baseOctave };
   const majorScale = [0, 2, 4, 5, 7, 9, 11]; // Semitones for major scale
 
   return progression.chordDegrees.map(degree => {

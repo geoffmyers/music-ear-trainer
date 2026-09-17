@@ -22,8 +22,11 @@ with them. The identification is not a guess:
   **tonejs-instruments** folder names".
 - The folder layout matches that library exactly, down to `guitar-acoustic`
   rather than `guitar`.
-- Every note ships as an `.mp3`, `.ogg` and `.wav` triplet, which is that
-  library's packaging.
+- Every note originally arrived as an `.mp3`, `.ogg` and `.wav` triplet,
+  which is that library's packaging. `InstrumentLoader.ts` only ever loaded
+  the `.mp3`, so the `.ogg`/`.wav` duplicates (111 MB, unused in every clone
+  and in the mobile app bundle) were removed on 2026-09-17; only `.mp3` ships
+  now.
 
 The licence was then read from the upstream repository rather than recalled.
 

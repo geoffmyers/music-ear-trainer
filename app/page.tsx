@@ -103,7 +103,7 @@ export default function Home() {
   };
 
   const startNewGame = (mode: GameMode, diff: Difficulty) => {
-    const firstQuestion = quizEngine.generateQuestion(mode, diff);
+    const firstQuestion = quizEngine.generateQuestion(mode, diff, settings);
     setGameState({
       mode,
       difficulty: diff,
@@ -159,7 +159,8 @@ export default function Home() {
           progressionGenerator.playProgression(
             audioData.progression!.key,
             audioData.progression!.progression,
-            audioData.progression!.tempo
+            audioData.progression!.tempo,
+            audioData.progression!.baseOctave
           );
           break;
         case 'pitches':
@@ -248,7 +249,7 @@ export default function Home() {
         };
       }
 
-      const nextQuestion = quizEngine.generateQuestion(prev.mode, prev.difficulty);
+      const nextQuestion = quizEngine.generateQuestion(prev.mode, prev.difficulty, settings);
       return {
         ...prev,
         currentQuestion: nextQuestion,

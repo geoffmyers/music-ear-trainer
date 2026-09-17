@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useGlobalSettings } from '@/lib/context/GlobalSettingsContext';
 import { ALL_NOTES } from '@/lib/types/settings';
 import type { SoundType } from '@/lib/types/audio';
@@ -14,9 +14,47 @@ function getTimeLimitLabel(value: number | null): string {
   return `${value}s`;
 }
 
+// GitHub's octicon "mark-github", used as the required source-code-link icon.
+// Inline SVG so no CSP change is needed and it inherits the surrounding text colour.
+function GitHubIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false" fill="currentColor">
+      <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+    </svg>
+  );
+}
+
 export default function Footer() {
   const { settings, updateSettings, resetSettings } = useGlobalSettings();
   const [isExpanded, setIsExpanded] = useState(false);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
+  const firstFieldRef = useRef<HTMLInputElement>(null);
+  const wasExpandedRef = useRef(false);
+
+  // Focus management for the settings panel, which behaves like a slide-out
+  // dialog: move focus into it on open, back to the toggle button on close,
+  // and let Escape close it like any other dialog.
+  useEffect(() => {
+    if (isExpanded) {
+      firstFieldRef.current?.focus();
+    } else if (wasExpandedRef.current) {
+      toggleButtonRef.current?.focus();
+    }
+    wasExpandedRef.current = isExpanded;
+  }, [isExpanded]);
+
+  const handlePanelKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setIsExpanded(false);
+    }
+  };
+
+  // Chords and scales need roughly an octave of headroom around the root; a
+  // note range narrower than that will still play (the root is clamped as
+  // close to the range as possible - see lib/music/noteRange.ts), but some
+  // notes may extend slightly beyond what's configured here.
+  const rangeSpan = ALL_NOTES.indexOf(settings.highestNote) - ALL_NOTES.indexOf(settings.lowestNote);
+  const rangeIsNarrow = rangeSpan >= 0 && rangeSpan < 12;
 
   const handleQuestionsSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value, 10);
@@ -94,15 +132,26 @@ export default function Footer() {
       {/* Settings Side Panel */}
       <div className={`settings-panel ${isExpanded ? 'expanded' : ''}`}>
         <button
+          ref={toggleButtonRef}
           className="settings-toggle"
           onClick={() => setIsExpanded(!isExpanded)}
           aria-label={isExpanded ? 'Hide Settings' : 'Show Settings'}
+          aria-expanded={isExpanded}
+          aria-controls="global-settings-panel"
         >
           <span className="toggle-icon">{isExpanded ? '›' : '‹'}</span>
           <span className="toggle-text">Settings</span>
         </button>
 
-        <div className="settings-content">
+        <div
+          id="global-settings-panel"
+          className="settings-content"
+          role="dialog"
+          aria-modal={isExpanded}
+          aria-label="Global settings"
+          aria-hidden={!isExpanded}
+          onKeyDown={handlePanelKeyDown}
+        >
           <h2 className="settings-title">Global Settings</h2>
 
           <div className="settings-list">
@@ -110,6 +159,7 @@ export default function Footer() {
               <label htmlFor="questionsPerQuiz">Questions per Quiz</label>
               <div className="slider-container">
                 <input
+                  ref={firstFieldRef}
                   type="range"
                   id="questionsPerQuiz"
                   className="setting-slider"
@@ -118,6 +168,7 @@ export default function Footer() {
                   step="5"
                   value={settings.questionsPerQuiz}
                   onChange={handleQuestionsSliderChange}
+                  tabIndex={isExpanded ? 0 : -1}
                 />
                 <div className="slider-value">{settings.questionsPerQuiz}</div>
               </div>
@@ -134,6 +185,8 @@ export default function Footer() {
                   max={TIME_LIMITS.length - 1}
                   value={timeLimitIndex >= 0 ? timeLimitIndex : 0}
                   onChange={handleTimeLimitSliderChange}
+                  aria-valuetext={getTimeLimitLabel(settings.timeLimitPerQuestion)}
+                  tabIndex={isExpanded ? 0 : -1}
                 />
                 <div className="slider-value">{getTimeLimitLabel(settings.timeLimitPerQuestion)}</div>
               </div>
@@ -150,6 +203,8 @@ export default function Footer() {
                   max={highestNoteIndex}
                   value={lowestNoteIndex}
                   onChange={handleLowestNoteSliderChange}
+                  aria-valuetext={settings.lowestNote}
+                  tabIndex={isExpanded ? 0 : -1}
                 />
                 <div className="slider-value">{settings.lowestNote}</div>
               </div>
@@ -166,9 +221,17 @@ export default function Footer() {
                   max={ALL_NOTES.length - 1}
                   value={highestNoteIndex}
                   onChange={handleHighestNoteSliderChange}
+                  aria-valuetext={settings.highestNote}
+                  tabIndex={isExpanded ? 0 : -1}
                 />
                 <div className="slider-value">{settings.highestNote}</div>
               </div>
+              {rangeIsNarrow && (
+                <p className="setting-hint">
+                  A range this narrow may not fit a full chord or scale; notes
+                  that don&apos;t fit are placed as close to it as possible.
+                </p>
+              )}
             </div>
 
             <div className="setting-item">
@@ -177,6 +240,7 @@ export default function Footer() {
                 id="soundType"
                 value={settings.soundType}
                 onChange={handleSoundTypeChange}
+                tabIndex={isExpanded ? 0 : -1}
               >
                 <optgroup label="Waveforms">
                   <option value="sine">Sine</option>
@@ -206,6 +270,8 @@ export default function Footer() {
                   step="5"
                   value={Math.round(settings.volume * 100)}
                   onChange={handleVolumeSliderChange}
+                  aria-valuetext={`${Math.round(settings.volume * 100)}%`}
+                  tabIndex={isExpanded ? 0 : -1}
                 />
                 <div className="slider-value">{Math.round(settings.volume * 100)}%</div>
               </div>
@@ -217,6 +283,7 @@ export default function Footer() {
                 id="accidentals"
                 value={settings.accidentals}
                 onChange={handleAccidentalsChange}
+                tabIndex={isExpanded ? 0 : -1}
               >
                 <option value="sharps">Sharps only</option>
                 <option value="flats">Flats only</option>
@@ -231,6 +298,7 @@ export default function Footer() {
                 id="playbackStyle"
                 value={settings.playbackStyle}
                 onChange={handlePlaybackStyleChange}
+                tabIndex={isExpanded ? 0 : -1}
               >
                 <option value="separately">Play notes separately</option>
                 <option value="together">Play notes together</option>
@@ -244,6 +312,7 @@ export default function Footer() {
                   id="multiplePlays"
                   checked={settings.allowMultiplePlays}
                   onChange={handleMultiplePlaysChange}
+                  tabIndex={isExpanded ? 0 : -1}
                 />
                 Allow multiple plays
               </label>
@@ -255,6 +324,7 @@ export default function Footer() {
                 id="colorTheme"
                 value={settings.colorTheme}
                 onChange={handleColorThemeChange}
+                tabIndex={isExpanded ? 0 : -1}
               >
                 <option value="dark">Dark</option>
                 <option value="light">Light</option>
@@ -262,7 +332,11 @@ export default function Footer() {
             </div>
           </div>
 
-          <button className="reset-settings-button" onClick={handleResetSettings}>
+          <button
+            className="reset-settings-button"
+            onClick={handleResetSettings}
+            tabIndex={isExpanded ? 0 : -1}
+          >
             Reset to Defaults
           </button>
         </div>
@@ -274,6 +348,17 @@ export default function Footer() {
           By <a href="https://www.geoffmyers.com" target="_blank" rel="noopener noreferrer">Geoff Myers</a>
           {' · '}
           <a href="https://github.com/geoffmyers/music-ear-trainer/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">GPL-3.0-or-later</a>
+        </div>
+        <div className="github-source-link">
+          <a
+            href="https://github.com/geoffmyers/music-ear-trainer"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View source on GitHub"
+          >
+            <GitHubIcon />
+            <span>View source on GitHub</span>
+          </a>
         </div>
         {/*
           The samples are the part that legally needs this: tonejs-instruments

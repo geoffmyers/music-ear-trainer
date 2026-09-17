@@ -28,3 +28,18 @@ jobs:
         run: |
           npm ci
           npm run build
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    container: node:22-bookworm
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v6
+      - name: test
+        run: |
+          npm ci
+          npm test

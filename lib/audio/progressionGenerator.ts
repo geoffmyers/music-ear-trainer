@@ -8,8 +8,8 @@ import { noteToFrequency } from '../music/noteFrequencies';
 export class ProgressionGenerator {
   constructor(private audioEngine: AudioEngine, private chordGenerator: ChordGenerator) {}
 
-  playProgression(key: Key, progression: Progression, tempo: number = 120): void {
-    const progressionChords = getProgressionChords(key, progression);
+  playProgression(key: Key, progression: Progression, tempo: number = 120, baseOctave: number = 4): void {
+    const progressionChords = getProgressionChords(key, progression, baseOctave);
     const beatsPerChord = 4; // Whole note per chord
     const chordDuration = (60 / tempo) * beatsPerChord;
     const gapDuration = 0.1;

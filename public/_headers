@@ -1,6 +1,14 @@
+# Cloudflare Web Analytics (enabled on the *.geoffmyers.com zone) injects its
+# beacon script; script-src/connect-src allow it by name rather than widening
+# to 'unsafe-inline'/'*'. worker-src 'self' blob: covers Tone.js's AudioWorklet
+# (ToneAudioWorklet loads its processor from a blob: URL) and its Worker-based
+# clock ticker. font-src needs data: because VexFlow embeds its music-notation
+# glyph fonts (Bravura etc.) as base64 data: URIs, not separate font files -
+# confirmed by loading the built app under this CSP in Playwright: font-src
+# 'self' alone blocked every glyph with a CSP violation per font weight.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; worker-src 'self' blob:
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; media-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

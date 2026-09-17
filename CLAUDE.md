@@ -4,7 +4,7 @@ This file provides technical guidance to Claude Code when working with the Music
 
 ## Project Overview
 
-Music Ear Trainer is a Next.js 15 web application that provides interactive ear training exercises for musicians. It uses the App Router architecture, React 19, TypeScript 5, and Tone.js for audio synthesis.
+Music Ear Trainer is a Next.js 16 web application that provides interactive ear training exercises for musicians. It uses the App Router architecture, React 19, TypeScript 5, and Tone.js for audio synthesis.
 
 **Key Technical Characteristics:**
 - Static site generation (SSG) with `output: 'export'`
@@ -376,7 +376,7 @@ This runs:
 
 ### Build Fails
 - Check for dynamic imports of server-only packages
-- Ensure `output: 'export'` is set in next.config.mjs
+- Ensure `output: 'export'` is set in next.config.ts
 - Verify no API routes or dynamic routes exist
 
 ### Stats Not Persisting
@@ -417,7 +417,7 @@ This runs:
 
 ## Environment
 
-- **Node.js**: 18.x or higher
+- **Node.js**: 20.9+ (Next.js 16's own minimum); CI/publish checks run Node 22 (`node:22-bookworm`)
 - **Package Manager**: npm
 - **Build Target**: ES2020
 - **TypeScript**: 5.7.2 with strict mode
@@ -426,13 +426,8 @@ This runs:
 
 ## Gotchas
 
-- This project is published to GitHub (`geoffmyers/music-ear-trainer`) as a snapshot.
-  Each publish appends one commit to the public history. Publish with:
-  `scripts/publish-subtree-snapshot.sh --prefix=music/music-ear-trainer-nextjs --publish`
-  Exclusions and GitHub metadata are declared in `scripts/subtree-publish.json`.
-- **NEVER run `git subtree push` or `git subtree split`.** A raw split has twice
-  pushed the entire mono-repo history — and the secrets in it — to a public remote
-  (see `docs/security/2026-02-04-` and `2026-05-12-credential-leak-audit.md`). A
-  pre-push hook refuses it.
+- This project is developed in a private repository and published to
+  GitHub (`geoffmyers/music-ear-trainer`) as a snapshot: each publish adds one commit.
+  Pull requests are applied upstream first; see CONTRIBUTING.md.
 
 For questions or clarifications about this codebase, refer to the code comments and TypeScript types, which are comprehensive and up-to-date.

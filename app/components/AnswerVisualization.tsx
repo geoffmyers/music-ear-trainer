@@ -42,8 +42,8 @@ function getNotesFromAudioData(audioData: AudioQuestionData): NoteOctave[] {
 
   if (mode === 'progressions' && audioData.progression) {
     // Get all notes from all chords in the progression
-    const { key, progression } = audioData.progression;
-    const chords = getProgressionChords(key, progression);
+    const { key, progression, baseOctave } = audioData.progression;
+    const chords = getProgressionChords(key, progression, baseOctave);
     const allNotes: NoteOctave[] = [];
 
     chords.forEach(({ rootNote, chord }) => {
@@ -75,8 +75,8 @@ function getChordGroupsFromAudioData(audioData: AudioQuestionData): NoteOctave[]
     return null;
   }
 
-  const { key, progression } = audioData.progression;
-  const chords = getProgressionChords(key, progression);
+  const { key, progression, baseOctave } = audioData.progression;
+  const chords = getProgressionChords(key, progression, baseOctave);
 
   return chords.map(({ rootNote, chord }) => {
     return getChordNotes(rootNote, chord, 0);

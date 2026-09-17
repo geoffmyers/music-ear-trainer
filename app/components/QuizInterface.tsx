@@ -53,14 +53,17 @@ export default function QuizInterface({
         {isPlaying ? '🔊 Playing...' : '▶️ Play Sound'}
       </button>
 
-      <div className="answer-options">
+      <div className="answer-options" role="group" aria-label="Answer options">
         {question.options.map((option) => {
           let className = 'answer-button';
+          let statusLabel = '';
           if (hasAnswered && option === selectedAnswer) {
             className += ' selected';
             className += lastAnswerCorrect ? ' correct' : ' incorrect';
+            statusLabel = lastAnswerCorrect ? ', your answer, correct' : ', your answer, incorrect';
           } else if (hasAnswered && option === question.correctAnswer) {
             className += ' correct';
+            statusLabel = ', the correct answer';
           }
 
           return (
@@ -69,6 +72,8 @@ export default function QuizInterface({
               className={className}
               onClick={() => handleSelectAnswer(option)}
               disabled={hasAnswered}
+              aria-pressed={hasAnswered && option === selectedAnswer}
+              aria-label={`${option}${statusLabel}`}
             >
               {option}
             </button>
