@@ -9,6 +9,7 @@
 ![React 19.2.4](https://img.shields.io/badge/React-19.2.4-61dafb?style=flat-square&logo=react)
 ![TypeScript 5.7.2](https://img.shields.io/badge/TypeScript-5.7.2-3178c6?style=flat-square&logo=typescript)
 ![Tone.js 15.1.22](https://img.shields.io/badge/Tone.js-15.1.22-f22f46?style=flat-square)
+[![Latest release](https://img.shields.io/github/v/release/geoffmyers/music-ear-trainer?style=flat-square&logo=github&label=release)](https://github.com/geoffmyers/music-ear-trainer/releases/latest)
 [![Licence GPL-3.0-or-later](https://img.shields.io/badge/licence-GPL--3.0--or--later-blue?style=flat-square)](LICENSE.md)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 <!-- BADGES:END -->
